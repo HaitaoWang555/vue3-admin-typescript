@@ -1,6 +1,8 @@
 import { createApp, App } from 'vue'
 import ELApp from './App.vue'
 import { loadComponents, loadPlugins } from '@/core/use'
+import 'windi.css'
+import './styles/index.scss' // global css
 
 const app: App = createApp(ELApp)
 
