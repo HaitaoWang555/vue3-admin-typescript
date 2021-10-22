@@ -5,13 +5,20 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint-staged": "lint-staged",
+    "lint:fix": "eslint --fix --cache --ext .vue,.js,.jsx,.ts,.tsx ./",
+    "lint:style": "stylelint --fix \"src/**/*.vue\" --custom-syntax postcss-html",
+    "lint:css": "stylelint --fix \"src/**/*.{css,sass,scss}\" --syntax scss",
+    "prepare": "husky install"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "3.2.20"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -21,28 +28,30 @@
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.1",
     "eslint-plugin-vue": "^7.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.4.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.21.0",
     "typescript": "~4.1.5"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "@vue/typescript"
-    ],
-    "parserOptions": {
-      "parser": "@typescript-eslint/parser"
-    },
-    "rules": {}
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "lint-staged": {
+    "**/*.{vue}": "npm run lint:style",
+    "**/*.{css,sass,scss}": "npm run lint:css",
+    "**/*.{vue,js,jsx,ts,tsx}": "npm run lint:fix"
+  }
 }
