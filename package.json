@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve",
     "lint-staged": "lint-staged",
+    "lint:css": "stylelint --fix \"src/**/*.{css,sass,scss}\" --syntax scss",
     "lint:fix": "eslint --fix --cache --ext .vue,.js,.jsx,.ts,.tsx ./",
     "lint:style": "stylelint --fix \"src/**/*.vue\" --custom-syntax postcss-html",
-    "lint:css": "stylelint --fix \"src/**/*.{css,sass,scss}\" --syntax scss",
     "prepare": "husky install"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-plus": "^1.1.0-beta.24",
     "vue": "3.2.20"
   },
   "devDependencies": {
@@ -42,7 +43,8 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.21.0",
-    "typescript": "~4.1.5"
+    "typescript": "~4.1.5",
+    "unplugin-vue-components": "^0.16.0"
   },
   "browserslist": [
     "> 1%",
