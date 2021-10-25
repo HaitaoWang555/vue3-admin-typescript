@@ -13,16 +13,21 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "0.22.0",
+    "clipboard": "^2.0.8",
     "core-js": "^3.6.5",
     "element-plus": "^1.1.0-beta.24",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
+    "store": "^2.0.12",
     "vue": "3.2.20",
     "windicss": "^3.1.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
+    "@types/mockjs": "^1.0.4",
+    "@types/store": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -42,6 +47,7 @@
     "eslint-plugin-vue": "^7.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
+    "mockjs": "^1.1.0",
     "prettier": "^2.4.1",
     "sass": "^1.38.0",
     "sass-loader": "^10.2.0",

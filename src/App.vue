@@ -3,6 +3,10 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
 import Tailwind from '@/views/tailwind/index.vue'
+import { getInfo } from '@/api/user'
+getInfo('admin-token').then((res) => {
+  console.log(res.data.data.roles)
+})
 </script>
 
 <template>

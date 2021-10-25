@@ -7,9 +7,21 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
+// port = 9527 npm run dev OR npm run dev --port = 9527
+const port = process.env.port || process.env.npm_config_port || 9527 // dev port
 const isDev = process.env.NODE_ENV === 'development'
 
 const vueConfig = {
+  productionSourceMap: false,
+  devServer: {
+    port: port,
+    open: true,
+    overlay: {
+      warnings: false,
+      errors: true,
+    },
+    before: require('./mock/mock-server.js'),
+  },
   configureWebpack: {
     resolve: {
       alias: {
