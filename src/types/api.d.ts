@@ -98,7 +98,7 @@ declare namespace API {
   }
 
   type TableList = {
-    data?: TableItem[]
+    items?: TableItem[]
     total?: number
     success?: boolean
   }
