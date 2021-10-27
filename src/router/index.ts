@@ -11,7 +11,10 @@ const constantRoutes: RouteRecordRaw[] = [
       {
         path: 'dashboard',
         name: 'Dashboard',
-        component: () => import('@/views/dashboard/index.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'
+          ),
         meta: { title: 'Dashboard', icon: 'dashboard' },
       },
     ],
@@ -27,13 +30,15 @@ const constantRoutes: RouteRecordRaw[] = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('@/views/table/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "example" */ '@/views/table/index.vue'),
         meta: { title: 'Table', icon: 'table' },
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "example" */ '@/views/tree/index.vue'),
         meta: { title: 'Tree', icon: 'tree' },
       },
     ],
@@ -46,20 +51,24 @@ const constantRoutes: RouteRecordRaw[] = [
       {
         path: 'index',
         name: 'Form',
-        component: () => import('@/views/form/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "form" */ '@/views/form/index.vue'),
         meta: { title: 'Form', icon: 'form' },
       },
     ],
   },
   {
-    path: '/tailwind',
+    path: '/windicss',
     component: Layout,
     children: [
       {
         path: 'index',
         name: 'Tailwind',
-        component: () => import('@/views/tailwind/index.vue'),
-        meta: { title: 'tailwind', icon: 'el-icon-magic-stick' },
+        component: () =>
+          import(
+            /* webpackChunkName: "windicss" */ '@/views/tailwind/index.vue'
+          ),
+        meta: { title: 'windicss', icon: 'el-icon-magic-stick' },
       },
     ],
   },
@@ -70,7 +79,8 @@ const constantRoutes: RouteRecordRaw[] = [
       {
         path: 'index',
         name: 'IconsViews',
-        component: () => import('@/views/icons/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "icon" */ '@/views/icons/index.vue'),
         meta: { title: 'icons', icon: 'icon' },
       },
     ],
@@ -88,33 +98,46 @@ const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: 'menu1',
-        component: () => import('@/views/nested/menu1/index.vue'), // Parent router-view
+        component: () =>
+          import(
+            /* webpackChunkName: "nested" */ '@/views/nested/menu1/index.vue'
+          ), // Parent router-view
         name: 'Menu1',
         meta: { title: 'Menu1' },
         children: [
           {
             path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1/index.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "nested" */ '@/views/nested/menu1/menu1-1/index.vue'
+              ),
             name: 'Menu1-1',
             meta: { title: 'Menu1-1' },
           },
           {
             path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2/index.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "nested" */ '@/views/nested/menu1/menu1-2/index.vue'
+              ),
             name: 'Menu1-2',
             meta: { title: 'Menu1-2' },
             children: [
               {
                 path: 'menu1-2-1',
                 component: () =>
-                  import('@/views/nested/menu1/menu1-2/menu1-2-1/index.vue'),
+                  import(
+                    /* webpackChunkName: "nested" */ '@/views/nested/menu1/menu1-2/menu1-2-1/index.vue'
+                  ),
                 name: 'Menu1-2-1',
                 meta: { title: 'Menu1-2-1' },
               },
               {
                 path: 'menu1-2-2',
                 component: () =>
-                  import('@/views/nested/menu1/menu1-2/menu1-2-2/index.vue'),
+                  import(
+                    /* webpackChunkName: "nested" */ '@/views/nested/menu1/menu1-2/menu1-2-2/index.vue'
+                  ),
                 name: 'Menu1-2-2',
                 meta: { title: 'Menu1-2-2' },
               },
@@ -122,7 +145,10 @@ const constantRoutes: RouteRecordRaw[] = [
           },
           {
             path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3/index.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "nested" */ '@/views/nested/menu1/menu1-3/index.vue'
+              ),
             name: 'Menu1-3',
             meta: { title: 'Menu1-3' },
           },
@@ -130,7 +156,10 @@ const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: 'menu2',
-        component: () => import('@/views/nested/menu2/index.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "nested" */ '@/views/nested/menu2/index.vue'
+          ),
         name: 'Menu2',
         meta: { title: 'menu2' },
       },
@@ -150,12 +179,13 @@ const constantRoutes: RouteRecordRaw[] = [
   },
   {
     path: '/login',
-    component: () => import('@/views/login/index.vue'),
+    component: () =>
+      import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
     meta: { hidden: true },
   },
   {
     path: '/404',
-    component: () => import('@/views/404.vue'),
+    component: () => import(/* webpackChunkName: "404" */ '@/views/404.vue'),
     meta: { hidden: true },
   },
   { path: '/:pathMatch(.*)*', redirect: '/404', meta: { hidden: true } },

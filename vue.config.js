@@ -75,6 +75,13 @@ const vueConfig = {
             priority: 5,
             reuseExistingChunk: true,
           },
+          styles: {
+            name: 'chunk-styles',
+            test: (m) => m.constructor.name === 'CssModule',
+            chunks: 'all',
+            minChunks: 1,
+            priority: 40,
+          },
         },
       })
       // https:// webpack.js.org/configuration/optimization/#optimizationruntimechunk
